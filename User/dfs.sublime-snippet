@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+auto dfs = [&](int vertex ,auto &&dfs) -> void{
+         vis[vertex] = true;
+         for(auto &child: g[vertex]){
+            if(vis[child])continue;
+            dfs(child , dfs);
+         }
+    };
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dfs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

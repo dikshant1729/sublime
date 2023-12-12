@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+ int n , m;
+    cin>>n>>m;
+    vector<vector<int>> g(n+1);
+    while(m--){
+        int a , b;
+        cin>>a>>b;
+        g[a].pb(b);
+        g[b].pb(a);
+    }
+    vector<int> vis(n+1 , 0);
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>graphinp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

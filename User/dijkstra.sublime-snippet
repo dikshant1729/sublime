@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+vector<int> vis(n+1 , 0);
+    vector<int> dist(n+1 , 1e18);
+    
+    set<pair<int,int>> st;
+    st.insert({0,source});
+    dist[source] = 0;
+
+    while(st.size()>0){
+        auto node = *st.begin();
+        int v = node.second;
+        int v_dist = node.first;
+        st.erase(st.begin());
+        if(vis[v])continue;
+        vis[v] = 1;
+        for(auto child: g[v]){
+            int child_v = child.first;
+            int wt = child.second;
+            if(dist[v]+wt<dist[child_v]){
+                dist[child_v] = dist[v] + wt;
+                st.insert({dist[child_v] , child_v});
+            }
+        }
+    }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dijkstra</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
